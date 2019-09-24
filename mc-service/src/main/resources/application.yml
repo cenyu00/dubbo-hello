@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: mc-service
+
+
+user:
+  service:
+    version: 1.0.0
+dubbo:
+  scan:
+    base-packages: cn.bintools.daios.mcservice.impl
+  application:
+    id: mc-service
+    name: mc-service
+    qos-port: 22222
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+    status: server
+    serialization: kryo
+  registry:
+    id: zookeeper
+    address: zookeeper://127.0.0.1:2181
+  provider:
+    loadbalance: roundrobin
+server:
+  port: 9091
